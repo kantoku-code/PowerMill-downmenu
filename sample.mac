@@ -1,0 +1,28 @@
+// downmenu.inc sample
+
+function main() {
+	string list tools =  extract(filter(folder('tool'), ''), 'Name') 
+	string msg = 'これはdownmenu.incのサンプルです'
+	string list re = {}
+	call Exec_DownMenu($tools, $msg, 0, $re) 
+
+	if size($re) < 1 {
+		message info '選択されませんでした!'
+	} else {
+		$msg = join($re, crlf)
+		message info '以下が選択されました!' + crlf + $msg
+	}
+}
+
+include downmenu.inc
+// [input choice multip] の戻り値は、選択された項目のインデックスの為
+// 扱いにくいです。
+// 
+// includeは後ろ側でもOKです
+// Exec_DownMenuメソッドのパラメータは
+// 1-選択候補となる文字列リスト
+// 2-ダイアログに表示されるメッセージ
+// 3-1個も選択されなかった際の動作
+//   0-空のリストを返します
+//   1-即、マクロを終了します
+// 4-選択された文字列リスト（実質の戻り値）
