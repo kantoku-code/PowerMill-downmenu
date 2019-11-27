@@ -22,7 +22,7 @@
  + Autodesk PowerMill Standard 2020.1.0.2020113
  + Windows10 64bit Pro
 
- ### ライセンス:
+### ライセンス:
 + MIT
 
 ### 謝辞:
